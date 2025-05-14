@@ -1,16 +1,17 @@
 public class Tool {
-    String name;
-    int durability;
-    int lvl;
-    String tag;
+    private String name;
+    private int durability;
+    private int lvl;
+    private String tag;
 
+    //constructor without tag
     public Tool(String name, int durability, int lvl) {
         this.name = name;
         this.durability = durability;
         this.lvl = lvl;
         this.tag = name;
     }
-
+//constructor with tag
     public Tool(String name, int durability, int lvl, String tag) {
         this.name = name;
         this.durability = durability;
@@ -18,6 +19,27 @@ public class Tool {
         this.tag = tag;
     }
 
+//getters
+    public String getName() {
+        return name;
+    }
+    public int getDurability() {
+        return durability;
+    }
+    public int getLvl(){
+        return lvl;
+    }
+    public String getTag() {
+        return tag;
+    }
+
+    //setter for tag
+    public void setTag(String tag) {
+        if (tag != null && !tag.isEmpty()) {
+            this.tag = tag;
+        }
+    }
+    //mining method
     void mine(Block block) {
         if (durability <= 0) {
             System.out.println(tag + " is broken! Cannot mine " + block.colour + block.type + ".");
@@ -36,7 +58,7 @@ System.out.println(tag + " successfully mined the " + (block.colour.isEmpty() ? 
         }
     }
 
-
+//repair method
     void repair(int amount) {
         durability += amount;
         System.out.println(name + " repaired by " + amount + ". Durability is now: " + durability + ".");

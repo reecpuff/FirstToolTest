@@ -40,5 +40,11 @@ public class ToolTest {
         System.out.println("You encounter some black stone! We need some of that...");
 
         diaPickaxe.mine(bStone);
+
+        diaPickaxe.setTag("Bonnie");
+        System.out.println("The black stone has renamed your Pickaxe! Mine another to see with which name it has been bestowed...");
+
+        diaPickaxe.mine(bStone);
+
     }
 }
