@@ -14,6 +14,8 @@ public class ToolTest {
         System.out.println("You have found yourself in a cave! You are in possession of 4 tools(Iron pick, Gold shovel, Betty, and Bertha. How will you use them?");
 
         shovel.mine(bStone);
+
+        pickaxe.mine(dirt);
     }
 }
 //fart
