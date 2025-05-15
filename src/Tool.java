@@ -38,6 +38,11 @@ public class Tool {
     }
     //mining method
     void mine(Block block) {
+        int blocksMined = 0;
+
+        System.out.println("You attempt to mine 1 " + (block.colour.isEmpty() ? "" : block.colour + " ") +
+                block.type + ".");
+
         if (durability <= 0) {
             System.out.println(tag + " is broken! Cannot mine " + block.colour + block.type + ".");
             return;
@@ -48,15 +53,48 @@ boolean effective =
                 || (block.colour.contains("black") && material.getLvl() >= 2);
 
 if (effective) {
-System.out.println(tag + " successfully mined the " + (block.colour.isEmpty() ? "" : block.colour + " ") + block.type + "! Durability is now " + durability + ".");
-            durability--;
+    durability--;
+    blocksMined++;
+System.out.println(tag + " successfully mined " + blocksMined + " " +
+        (block.colour.isEmpty() ? "" : block.colour + " ") + block.type +
+        (blocksMined == 1 ? "" : "s") + ". Durability is now: " + durability + ".");
         } else {
-            System.out.println(tag + " is not effective against " + block.colour + " " + block.type + "!");
+            System.out.println(tag + " is not effective against " + (block.colour.isEmpty() ? "" : block.colour + " ") +
+                    block.type + "!");
         }
     }
 
     //Mining session method
+void mineBlocks(int count, Block block) {
+        int blocksMined = 0;
 
+        //message
+        System.out.println("You decide to mine " + count +
+                (block.colour.isEmpty() ? " " : " " + block.colour + " ") + block.type + ".");
+//loop
+        for (int i = 1; i <= count; i++) {
+            if (durability <= 0) {
+                System.out.println(tag + " broke after mining " + (i - 1) +
+                        (block.colour.isEmpty() ? " " : " " + block.colour + " ") + block.type + "!");
+                break;
+            }
+//effective
+            boolean effective =
+                    (name.contains("Pickaxe") && block.type.equals("stone"))
+                            || (name.contains("Shovel") && block.type.equals("dirt"))
+                            || (block.colour.contains("black") && material.getLvl() >= 2);
+
+            if (effective) {
+                durability--;
+                blocksMined++;
+            } else {
+                System.out.println(tag + " is not effective against " + block.colour + " " + block.type + "!");
+            }
+        }
+        //out message
+        System.out.println(tag + " successfully mined " + blocksMined + " " +
+                block.type + (blocksMined == 1 ? "" : "s") + "!");
+}
 
 //repair method
     void repair(int amount) {
@@ -64,4 +102,3 @@ System.out.println(tag + " successfully mined the " + (block.colour.isEmpty() ? 
         System.out.println(name + " repaired by " + amount + ". Durability is now: " + durability + ".");
     }
 }
-//fart

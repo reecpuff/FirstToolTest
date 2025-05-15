@@ -11,11 +11,18 @@ public class ToolTest {
         Block bStone = new Block("black", "stone");
         Block bDirt = new Block("black", "dirt");
 
-        System.out.println("You have found yourself in a cave! You are in possession of 4 tools(Iron pick, Gold shovel, Betty, and Bertha. How will you use them?");
+        System.out.println("You have found yourself in a cave! You are in possession of 4 tools. How will you use them?");
 
-        shovel.mine(bStone);
-
+        pickaxe.mine(stone);
         pickaxe.mine(dirt);
+        shovel.mine(dirt);
+        shovel.mine(stone);
+        diaPickaxe.mine(bStone);
+        diaShovel.mine(bDirt);
+        shovel.mine(bDirt);
+
+        shovel.mineBlocks(24, dirt);
+
+        shovel.repair(10);
     }
 }
-//fart
