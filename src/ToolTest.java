@@ -24,5 +24,7 @@ public class ToolTest {
         shovel.mineBlocks(24, dirt);
 
         shovel.repair(10);
+
+        diaPickaxe.mine(bDirt);
     }
 }
