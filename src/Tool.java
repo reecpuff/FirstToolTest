@@ -64,3 +64,4 @@ System.out.println(tag + " successfully mined the " + (block.colour.isEmpty() ? 
         System.out.println(name + " repaired by " + amount + ". Durability is now: " + durability + ".");
     }
 }
+//fart
